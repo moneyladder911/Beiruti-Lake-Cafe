@@ -18,7 +18,7 @@ export default function WhatsAppButton() {
     if (!show) return null;
 
     return (
-        <div className="fixed bottom-24 md:bottom-8 right-5 z-40">
+        <div className="fixed bottom-4 md:bottom-8 right-5 z-40">
             {/* Tooltip */}
             {tooltip && (
                 <div className="absolute bottom-full right-0 mb-3 whitespace-nowrap animate-fade-in-up">

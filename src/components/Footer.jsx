@@ -184,6 +184,28 @@ export default function Footer() {
                                 </svg>
                             </a>
                             <a
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Facebook"
+                                className="w-10 h-10 border border-white/20 flex items-center justify-center transition-all duration-300 hover:border-white hover:bg-white hover:text-charcoal text-white/60"
+                            >
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                </svg>
+                            </a>
+                            <a
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="TikTok"
+                                className="w-10 h-10 border border-white/20 flex items-center justify-center transition-all duration-300 hover:border-white hover:bg-white hover:text-charcoal text-white/60"
+                            >
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.65-1.62-1.1-.04 1.86.04 3.73-.04 5.6-.18 4.41-3.8 8.07-8.21 8.35-4.69.31-8.62-3.23-9.08-7.85-.45-4.65 2.66-8.89 7.15-9.76.7-.14 1.42-.18 2.14-.14v4.46c-.23.01-.46-.03-.68.03-2.02.63-3.02 2.92-2.18 4.88.85 1.96 3.42 2.77 5.25 1.62 1.42-.9 2.05-2.77 1.55-4.38-.13-.4-.36-.77-.61-1.11-.08-2.97-.02-5.94.02-8.91l-.01-.69z" />
+                                </svg>
+                            </a>
+                            <a
                                 href="https://wa.me/971501507173"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -204,17 +226,6 @@ export default function Footer() {
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                                     <circle cx="12" cy="10" r="3" />
-                                </svg>
-                            </a>
-                            <a
-                                href="#"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Facebook"
-                                className="w-10 h-10 border border-white/20 flex items-center justify-center transition-all duration-300 hover:border-white hover:bg-white hover:text-charcoal text-white/60"
-                            >
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                                 </svg>
                             </a>
                         </div>
