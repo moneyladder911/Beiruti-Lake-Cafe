@@ -175,7 +175,7 @@ export const menuData = {
                 ],
             },
             {
-                category: "Shisha Flavors",
+                category: "Arabic Shisha",
                 items: [
                     { name: "Double Apple", price: 45 },
                     { name: "Grape Mint", price: 45 },
@@ -194,7 +194,7 @@ export const menuData = {
                 ],
             },
             {
-                category: "Premium Shisha — Savaco London",
+                category: "Russian Shisha",
                 items: [
                     { name: "Purple Rain", description: "Dark ripe blueberry with an undertone of black grape and cooling menthol", price: 59 },
                     { name: "Magna Carta", description: "Famous Cuban mojito, crushed lime and ice", price: 59 },
