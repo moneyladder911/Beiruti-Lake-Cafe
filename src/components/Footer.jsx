@@ -36,7 +36,7 @@ export default function Footer() {
             {/* Map Section */}
             <div className="w-full h-[350px] md:h-[400px] relative bg-charcoal-light">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.5!2d55.1562!3d24.9857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDU5JzA4LjUiTiA1NcKwMDknMjIuMyJF!5e0!3m2!1sen!2sae!4v1"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14454.496547671746!2d55.16682046835268!3d25.00332857416396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f72e39908665f%3A0x6280436d4001b606!2sBeiruti%20Lake%20Cafe!5e0!3m2!1sen!2sae!4v1707567890123!5m2!1sen!2sae"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -44,7 +44,7 @@ export default function Footer() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Beiruti Lake Cafe Location - Dubai Investment Park"
-                    className="w-full h-full grayscale contrast-125 opacity-70"
+                    className="w-full h-full grayscale-[50%] contrast-100 opacity-90"
                 />
 
                 {/* Map overlay card */}
