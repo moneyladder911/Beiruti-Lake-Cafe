@@ -6,7 +6,7 @@ import About from "@/components/About";
 import InstagramFeed from "@/components/InstagramFeed";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import MobileNav from "@/components/MobileNav";
+
 
 export default function Home() {
   return (
@@ -21,7 +21,6 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppButton />
-      <MobileNav />
     </>
   );
 }
