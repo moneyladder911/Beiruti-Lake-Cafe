@@ -54,12 +54,12 @@ export default function About() {
                                 <strong className="text-charcoal font-medium">
                                     quiet workspace in Dubai Investment Park
                                 </strong>{" "}
-                                or a lakeside retreat for artisan shisha and Neapolitan pizza,
+                                or a lakeside retreat for premium ambiance and Neapolitan pizza,
                                 Beiruti Lake is the space you&apos;ve been looking for.
                             </p>
                             <p>
                                 From our premium roastery — rivaling the best in Jumeirah and
-                                Marina — to our handcrafted Savaco London signature shisha,
+                                Marina — to our handcrafted artisanal beverages and desserts,
                                 every detail is designed to elevate your experience.
                             </p>
                         </div>

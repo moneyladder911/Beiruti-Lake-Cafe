@@ -126,7 +126,7 @@ export default function Footer() {
                             <span className="text-white/50">LAKE</span>
                         </h3>
                         <p className="text-white/40 text-[13px] font-light leading-relaxed">
-                            Specialty coffee, artisan shisha & lakefront dining in the heart
+                            Specialty coffee, premium ambiance & lakefront dining in the heart
                             of Dubai Investment Park.
                         </p>
                     </div>

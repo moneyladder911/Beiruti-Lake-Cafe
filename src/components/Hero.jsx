@@ -59,9 +59,9 @@ export default function Hero() {
 
                 {/* SEO-rich H2 subtitle */}
                 <h2 className="text-white/50 text-[15px] md:text-[17px] font-light tracking-wide max-w-xl mx-auto mb-10 leading-relaxed animate-fade-in-up opacity-0" style={{ fontFamily: "var(--font-inter)", animationDelay: "0.6s", animationFillMode: "forwards" }}>
-                    Specialty Coffee, Artisan Shisha &amp; Lakefront Dining
+                    Specialty Coffee, Lakeside Dining & Premium Ambiance
                     <br className="hidden md:block" />
-                    {" "}in Dubai Investment Park (DIP).
+                    {" "}at Dubai Investment Park (DIP 1)
                 </h2>
 
                 {/* CTAs */}

@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 export const metadata = {
   title: "Beiruti Lake Cafe | Best Specialty Coffee & Dining in DIP, Dubai",
   description:
-    "Experience lakefront dining at Beiruti Lake Cafe in DIP. Serving artisan coffee, gourmet breakfast, and premium shisha. The perfect quiet workspace and destination for the Jumeirah & Marina crowd.",
+    "Experience lakefront dining at Beiruti Lake Cafe in DIP. Serving artisan coffee, gourmet breakfast, and premium ambiance. The perfect quiet workspace and destination for the Jumeirah & Marina crowd.",
   keywords: [
     "Specialty Coffee DIP",
     "Quiet Workspace Dubai Investment Park",
@@ -25,7 +25,7 @@ export const metadata = {
     "Beiruti Lake Cafe",
     "Lakefront Cafe Dubai",
     "Work-friendly Cafe DIP",
-    "Shisha Dubai Investment Park",
+    "Premium Ambiance Dubai Investment Park",
     "Lake Cafe Dubai",
     "Neapolitan Pizza DIP",
     "Best Cafe Dubai Investment Park",
@@ -35,7 +35,7 @@ export const metadata = {
   openGraph: {
     title: "Beiruti Lake Cafe | Best Specialty Coffee & Dining in DIP, Dubai",
     description:
-      "Experience lakefront dining at Beiruti Lake Cafe in DIP. Artisan coffee, gourmet breakfast, premium shisha, and Neapolitan pizza by the lake.",
+      "Experience lakefront dining at Beiruti Lake Cafe in DIP. Artisan coffee, gourmet breakfast, premium ambiance, and Neapolitan pizza by the lake.",
     type: "website",
     locale: "en_AE",
     url: "https://beirutilake.com",
@@ -45,7 +45,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Beiruti Lake Cafe | Best Specialty Coffee & Dining in DIP, Dubai",
     description:
-      "The perfect quiet workspace and lakefront destination in Dubai Investment Park. Premium coffee, shisha, and Italian-inspired dining.",
+      "The perfect quiet workspace and lakefront destination in Dubai Investment Park. Premium coffee, ambiance, and Italian-inspired dining.",
   },
   robots: {
     index: true,
@@ -65,7 +65,7 @@ export default function RootLayout({ children }) {
     image: "https://beirutilake.com/logo.png",
     url: "https://beirutilake.com",
     telephone: "+971-XX-XXX-XXXX",
-    description: "Premium lakefront cafe in Dubai Investment Park serving specialty coffee, artisan shisha, Neapolitan pizza, and Lebanese-fusion breakfast.",
+    description: "Premium lakefront cafe in Dubai Investment Park serving specialty coffee, artisan desserts, Neapolitan pizza, and Lebanese-fusion breakfast.",
     keywords: "Specialty Coffee DIP, Lakefront Cafe Dubai, Work-friendly Cafe DIP, Premium Roastery Jumeirah, Premium Roastery Marina",
     areaServed: [
       { "@type": "City", name: "Dubai Investment Park" },
@@ -159,18 +159,7 @@ export default function RootLayout({ children }) {
             },
           ],
         },
-        {
-          "@type": "MenuSection",
-          name: "Specialty Shisha",
-          hasMenuItem: [
-            {
-              "@type": "MenuItem",
-              name: "Purple Rain — Savaco London",
-              description: "Dark ripe blueberry with an undertone of black grape and cooling menthol",
-              offers: { "@type": "Offer", price: "59", priceCurrency: "AED" },
-            },
-          ],
-        },
+
         {
           "@type": "MenuSection",
           name: "All-Day Brunch",
