@@ -53,7 +53,7 @@ export default function Menu() {
     }, [activeCategory]);
 
     return (
-        <section id="menu" className="py-20 md:py-32 bg-cream">
+        <section id="menu" className="py-12 md:py-24 bg-cream">
             <div className="max-w-5xl mx-auto px-5">
                 {/* Section header */}
                 <div className="text-center mb-14">

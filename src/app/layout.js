@@ -1,5 +1,6 @@
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import RamadanBanner from "@/components/RamadanBanner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -260,6 +261,7 @@ export default function RootLayout({ children }) {
         className={`${inter.variable} ${playfair.variable} antialiased`}
         style={{ fontFamily: "var(--font-inter)" }}
       >
+        <RamadanBanner />
         {children}
       </body>
     </html>
