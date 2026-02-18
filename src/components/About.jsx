@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function About() {
+    const { t } = useLanguage();
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
 
@@ -21,6 +23,14 @@ export default function About() {
         return () => observer.disconnect();
     }, []);
 
+    // Helper to get features dynamically to ensure translation updates on switch
+    const features = [
+        { icon: "☕", label: t("about.features.roastery") },
+        { icon: "🌿", label: t("about.features.terrace") },
+        { icon: "💻", label: t("about.features.workspace") },
+        { icon: "🍕", label: t("about.features.pizza") },
+    ];
+
     return (
         <section id="about" ref={sectionRef} className="py-20 md:py-32 bg-warm-white">
             <div className="max-w-6xl mx-auto px-5">
@@ -31,47 +41,29 @@ export default function About() {
                             }`}
                     >
                         <p className="text-charcoal-muted text-[11px] tracking-[0.5em] uppercase mb-5">
-                            Our Story
+                            {t("about.ourStory")}
                         </p>
                         <h2
                             className="text-charcoal text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-8"
                             style={{ fontFamily: "var(--font-display)" }}
                         >
-                            Where the Lake
-                            <br />
-                            Meets the Craft
+                            {t("about.title")}
                         </h2>
                         <div className="space-y-5 text-charcoal-muted text-[15px] font-light leading-[1.8]">
                             <p>
-                                Nestled in the heart of{" "}
-                                <strong className="text-charcoal font-medium">Dubai Investment Park</strong>,
-                                Beiruti Lake Cafe is more than a destination — it&apos;s a ritual.
-                                Our specialty coffee in DIP is sourced from the finest single-origin
-                                beans, hand-roasted to bring out flavours that define every cup.
+                                {t("about.p1")}
                             </p>
                             <p>
-                                Whether you&apos;re seeking a{" "}
-                                <strong className="text-charcoal font-medium">
-                                    quiet workspace in Dubai Investment Park
-                                </strong>{" "}
-                                or a lakeside retreat for premium ambiance and Neapolitan pizza,
-                                Beiruti Lake is the space you&apos;ve been looking for.
+                                {t("about.p2")}
                             </p>
                             <p>
-                                From our premium roastery — rivaling the best in Jumeirah and
-                                Marina — to our handcrafted artisanal beverages and desserts,
-                                every detail is designed to elevate your experience.
+                                {t("about.p3")}
                             </p>
                         </div>
 
                         {/* Features */}
                         <div className="grid grid-cols-2 gap-6 mt-10">
-                            {[
-                                { icon: "☕", label: "Premium Roastery" },
-                                { icon: "🌿", label: "Lakefront Terrace" },
-                                { icon: "💻", label: "Quiet Workspace" },
-                                { icon: "🍕", label: "Wood-Fired Pizza" },
-                            ].map((feature, i) => (
+                            {features.map((feature, i) => (
                                 <div
                                     key={i}
                                     className={`flex items-center gap-3 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -96,7 +88,7 @@ export default function About() {
                             {/* Actual storefront photo */}
                             <img
                                 src="/about-storefront.jpg"
-                                alt="Beiruti Lake Cafe exterior — outdoor terrace with awning, palm tree, and marble tables in Dubai Investment Park"
+                                alt="Beiruti Lake Cafe exterior"
                                 className="absolute inset-0 w-full h-full object-cover"
                                 loading="lazy"
                             />

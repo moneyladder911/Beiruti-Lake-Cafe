@@ -1,57 +1,59 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
-const highlights = [
-    {
-        icon: (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                <line x1="6" y1="1" x2="6" y2="4" />
-                <line x1="10" y1="1" x2="10" y2="4" />
-                <line x1="14" y1="1" x2="14" y2="4" />
-            </svg>
-        ),
-        title: "Specialty Coffee",
-        description: "Single-origin beans, daily roasted",
-    },
-    {
-        icon: (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 6v6l4 2" />
-            </svg>
-        ),
-        title: "Open Daily",
-        description: "8 AM until midnight",
-    },
-    {
-        icon: (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-            </svg>
-        ),
-        title: "Lakefront",
-        description: "Dubai Investment Park",
-    },
-    {
-        icon: (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5" />
-                <path d="M2 12l10 5 10-5" />
-            </svg>
-        ),
-        title: "Full Kitchen",
-        description: "Pizza, pasta & manakish",
-    },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Highlights() {
+    const { t } = useLanguage();
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
+
+    const highlights = [
+        {
+            icon: (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                    <line x1="6" y1="1" x2="6" y2="4" />
+                    <line x1="10" y1="1" x2="10" y2="4" />
+                    <line x1="14" y1="1" x2="14" y2="4" />
+                </svg>
+            ),
+            title: t("highlights.specialtyCoffee"),
+            description: t("highlights.specialtyCoffeeDesc"),
+        },
+        {
+            icon: (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 6v6l4 2" />
+                </svg>
+            ),
+            title: t("highlights.openDaily"),
+            description: t("highlights.openDailyDesc"),
+        },
+        {
+            icon: (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                </svg>
+            ),
+            title: t("highlights.lakefront"),
+            description: t("highlights.lakefrontDesc"),
+        },
+        {
+            icon: (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
+                </svg>
+            ),
+            title: t("highlights.fullKitchen"),
+            description: t("highlights.fullKitchenDesc"),
+        },
+    ];
 
     useEffect(() => {
         const observer = new IntersectionObserver(

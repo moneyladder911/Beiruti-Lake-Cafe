@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function RamadanBanner() {
+    const { t } = useLanguage();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -64,22 +66,22 @@ export default function RamadanBanner() {
                                     <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                                 </svg>
                             </span>
-                            <span className="text-[#D4AF37] text-[10px] font-bold tracking-[0.2em] uppercase">Ramadan Kareem</span>
+                            <span className="text-[#D4AF37] text-[10px] font-bold tracking-[0.2em] uppercase">{t("ramadan.kareem")}</span>
                         </div>
 
                         <h3 className="text-lg font-display font-medium text-white leading-tight mb-2">
-                            Authentic Arabic & Persian Iftar Buffet
+                            {t("ramadan.title")}
                         </h3>
 
                         <div className="flex items-center justify-center md:justify-start gap-3 text-sm text-white/80">
                             <div className="flex items-baseline gap-1">
-                                <span className="text-2xl font-bold text-white">89</span>
-                                <span className="text-xs font-medium opacity-70">AED</span>
+                                <span className="text-2xl font-bold text-white">{t("ramadan.price")}</span>
+                                <span className="text-xs font-medium opacity-70">{t("ramadan.currency")}</span>
                             </div>
                             <span className="w-px h-6 bg-white/10"></span>
                             <div className="text-xs leading-tight text-left">
-                                Flavor Add-on<br />
-                                <span className="text-[#D4AF37] font-bold">+10 AED</span>
+                                {t("ramadan.flavorAddOn")}<br />
+                                <span className="text-[#D4AF37] font-bold">{t("ramadan.flavorPrice")}</span>
                             </div>
                         </div>
                     </div>
@@ -92,7 +94,7 @@ export default function RamadanBanner() {
                             rel="noopener noreferrer"
                             className="flex items-center justify-center gap-2 w-full md:w-auto bg-[#D4AF37] hover:bg-[#c29d2b] text-black font-semibold py-3 px-6 rounded-xl transition-all shadow-[0_0_20px_-5px_#D4AF37] hover:shadow-[0_0_25px_-5px_#D4AF37] transform hover:-translate-y-0.5 active:translate-y-0"
                         >
-                            <span className="whitespace-nowrap">Reserve Table</span>
+                            <span className="whitespace-nowrap">{t("ramadan.reserveBtn")}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M5 12h14"></path>
                                 <path d="M12 5l7 7-7 7"></path>

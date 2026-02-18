@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
+    const { t } = useLanguage();
     const heroRef = useRef(null);
 
     useEffect(() => {
@@ -43,7 +45,7 @@ export default function Hero() {
             <div className="relative z-10 text-center px-5 max-w-4xl mx-auto">
                 {/* Tagline */}
                 <p className="text-white/60 text-[11px] tracking-[0.5em] uppercase mb-6 animate-fade-in-up opacity-0" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-                    Dubai Investment Park · Lakefront Dining
+                    {t("hero.tagline")}
                 </p>
 
                 {/* Main heading */}
@@ -51,17 +53,15 @@ export default function Hero() {
                     className="text-white text-5xl md:text-7xl lg:text-8xl font-light leading-[0.95] mb-4 animate-fade-in-up opacity-0"
                     style={{ fontFamily: "var(--font-display)", animationDelay: "0.4s", animationFillMode: "forwards" }}
                 >
-                    BEIRUTI
+                    {t("hero.titleMain")}
                     <br />
-                    <span className="text-white/70">LAKE</span>{" "}
-                    <span className="text-white/50">CAFE</span>
+                    <span className="text-white/70">{t("hero.titleSub")}</span>{" "}
+                    <span className="text-white/50">{t("hero.titleEnd")}</span>
                 </h1>
 
                 {/* SEO-rich H2 subtitle */}
                 <h2 className="text-white/50 text-[15px] md:text-[17px] font-light tracking-wide max-w-xl mx-auto mb-10 leading-relaxed animate-fade-in-up opacity-0" style={{ fontFamily: "var(--font-inter)", animationDelay: "0.6s", animationFillMode: "forwards" }}>
-                    Specialty Coffee, Lakeside Dining & Premium Ambiance
-                    <br className="hidden md:block" />
-                    {" "}at Dubai Investment Park (DIP 1)
+                    {t("hero.subtitle")}
                 </h2>
 
                 {/* CTAs */}
@@ -85,7 +85,7 @@ export default function Hero() {
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                             <circle cx="12" cy="10" r="3" />
                         </svg>
-                        Get Directions
+                        {t("common.directions")}
                     </a>
 
                     <a
@@ -93,7 +93,7 @@ export default function Hero() {
                         id="hero-cta-menu"
                         className="group flex items-center gap-3 border border-white/30 text-white px-8 py-4 text-[13px] tracking-[0.2em] uppercase font-light transition-all duration-300 hover:border-white hover:bg-white/10"
                     >
-                        Explore Menu
+                        {t("hero.exploreMenu")}
                         <svg
                             width="14"
                             height="14"

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Header() {
+    const { t, language, setLanguage } = useLanguage();
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -30,40 +32,41 @@ export default function Header() {
                 }`}
         >
             <div className="max-w-7xl mx-auto px-5 flex items-center justify-between">
-                {/* Logo */}
-                <a href="#" className="flex items-center gap-3 group" aria-label="Beiruti Lake Cafe - Home">
-                    <div className="relative">
-                        <img
-                            src="/logo.png"
-                            alt="Beiruti Lake Cafe Logo"
-                            width={44}
-                            height={44}
-                            className="rounded-full transition-all duration-300 group-hover:scale-105"
-                            style={{
-                                boxShadow: scrolled ? 'none' : '0 2px 12px rgba(0,0,0,0.3)',
-                            }}
-                        />
-                    </div>
-                    <div className="flex flex-col leading-none">
-                        <span
-                            className={`text-[20px] tracking-[0.15em] font-light transition-colors duration-500 ${scrolled ? "text-charcoal" : "text-white"
-                                }`}
-                            style={{ fontFamily: "var(--font-display)" }}
-                        >
-                            BEIRUTI
-                        </span>
-                        <span
-                            className={`text-[12px] tracking-[0.35em] font-light transition-colors duration-500 ${scrolled ? "text-charcoal-muted" : "text-white/80"
-                                }`}
-                            style={{ fontFamily: "var(--font-display)" }}
-                        >
-                            LAKE CAFE
-                        </span>
-                    </div>
-                </a>
+                <div className="flex items-center gap-6">
+                    <a href="#" className="flex items-center gap-3 group" aria-label="Beiruti Lake Cafe - Home">
+                        <div className="relative">
+                            <img
+                                src="/logo.png"
+                                alt="Beiruti Lake Cafe Logo"
+                                width={44}
+                                height={44}
+                                className="rounded-full transition-all duration-300 group-hover:scale-105"
+                                style={{
+                                    boxShadow: scrolled ? 'none' : '0 2px 12px rgba(0,0,0,0.3)',
+                                }}
+                            />
+                        </div>
+                        <div className="flex flex-col leading-none">
+                            <span
+                                className={`text-[20px] tracking-[0.15em] font-light transition-colors duration-500 ${scrolled ? "text-charcoal" : "text-white"
+                                    }`}
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
+                                {t("hero.titleMain")}
+                            </span>
+                            <span
+                                className={`text-[12px] tracking-[0.35em] font-light transition-colors duration-500 ${scrolled ? "text-charcoal-muted" : "text-white/80"
+                                    }`}
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
+                                {t("hero.titleSub")} {t("hero.titleEnd")}
+                            </span>
+                        </div>
+                    </a>
+                </div>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-8">
+                <nav className="hidden md:flex items-center gap-6">
                     {navLinks.map((link) => (
                         <a
                             key={link.label}
@@ -71,9 +74,21 @@ export default function Header() {
                             className={`text-[13px] tracking-[0.2em] uppercase font-light transition-colors duration-300 hover:opacity-70 ${scrolled ? "text-charcoal" : "text-white"
                                 }`}
                         >
-                            {link.label}
+                            {t(`common.${link.label.toLowerCase()}`)}
                         </a>
                     ))}
+
+                    {/* Language Switcher */}
+                    <button
+                        onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
+                        className={`text-[11px] font-medium tracking-widest px-2 py-1 border rounded transition-all duration-300 hover:bg-white hover:text-charcoal ${scrolled
+                            ? "border-charcoal text-charcoal"
+                            : "border-white/30 text-white"
+                            }`}
+                    >
+                        {language === 'en' ? 'AR' : 'EN'}
+                    </button>
+
                     <a
                         href="https://wa.me/971501507173?text=Hi%20Beiruti%20Lake%20Cafe%2C%20I%27d%20like%20to%20book%20a%20table%2Forder%20for%20pickup."
                         target="_blank"
@@ -83,7 +98,7 @@ export default function Header() {
                             : "border-white text-white hover:bg-white hover:text-charcoal"
                             }`}
                     >
-                        Reserve
+                        {t("common.reserve")}
                     </a>
                 </nav>
 
@@ -122,16 +137,28 @@ export default function Header() {
                             onClick={() => setMobileMenuOpen(false)}
                             className="text-charcoal text-[14px] tracking-[0.15em] uppercase font-light py-3 border-b border-sand-100 transition-colors hover:text-charcoal-muted"
                         >
-                            {link.label}
+                            {t(`common.${link.label.toLowerCase()}`)}
                         </a>
                     ))}
+
+                    <button
+                        onClick={() => {
+                            setLanguage(language === 'en' ? 'ar' : 'en');
+                            setMobileMenuOpen(false);
+                        }}
+                        className="text-left text-charcoal text-[14px] tracking-[0.15em] uppercase font-light py-3 border-b border-sand-100 transition-colors hover:text-charcoal-muted flex items-center justify-between"
+                    >
+                        <span>Language</span>
+                        <span className="font-medium">{language === 'en' ? 'Arabic' : 'English'}</span>
+                    </button>
+
                     <a
                         href="https://wa.me/971501507173?text=Hi%20Beiruti%20Lake%20Cafe%2C%20I%27d%20like%20to%20book%20a%20table%2Forder%20for%20pickup."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mt-3 text-center text-[13px] tracking-[0.15em] uppercase font-light py-3 border border-charcoal text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300"
                     >
-                        Reserve a Table
+                        {t("common.reserveTable")}
                     </a>
                 </nav>
             </div>

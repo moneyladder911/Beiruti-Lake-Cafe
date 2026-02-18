@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+    const { t } = useLanguage();
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
@@ -31,6 +33,22 @@ export default function Footer() {
         return () => clearInterval(interval);
     }, []);
 
+    const driveTimes = [
+        { hub: t("hubs.alFurjan"), time: t("hubs.time8") },
+        { hub: t("hubs.discoveryGardens"), time: t("hubs.time10") },
+        { hub: t("hubs.motorCity"), time: t("hubs.time12") },
+        { hub: t("hubs.jlt"), time: t("hubs.time15") },
+        { hub: t("hubs.marina"), time: t("hubs.time20") },
+        { hub: t("hubs.jumeirah"), time: t("hubs.time25") },
+    ];
+
+    const quickLinks = [
+        { label: t("common.menu"), href: "#menu" },
+        { label: t("common.about"), href: "#about" },
+        { label: t("common.gallery"), href: "#gallery" },
+        { label: t("common.contact"), href: "#contact" },
+    ];
+
     return (
         <footer id="contact" className="bg-charcoal text-white">
             {/* Map Section */}
@@ -55,9 +73,9 @@ export default function Footer() {
                             <circle cx="12" cy="10" r="3" />
                         </svg>
                         <div>
-                            <p className="text-[13px] font-medium">Beiruti Lake Cafe</p>
-                            <p className="text-[12px] text-charcoal-muted font-light mt-1">
-                                DIP, Lake View - Shop 11, The Market<br />Green Community Village - Dubai
+                            <p className="text-[13px] font-medium">{t("footer.mapTitle")}</p>
+                            <p className="text-[12px] text-charcoal-muted font-light mt-1 whitespace-pre-line">
+                                {t("footer.mapAddress")}
                             </p>
                         </div>
                     </div>
@@ -65,7 +83,7 @@ export default function Footer() {
                     <div className="flex items-center gap-2 mb-3">
                         <div className={`w-2 h-2 rounded-full ${isOpen ? "bg-green-500 status-pulse" : "bg-red-400"}`} />
                         <span className="text-[12px] font-light">
-                            {isOpen ? "Open Now" : "Currently Closed"} · Daily 8 AM – 12 AM
+                            {isOpen ? t("footer.openNow") : t("footer.closed")} · {t("footer.hours")}
                         </span>
                     </div>
 
@@ -76,7 +94,7 @@ export default function Footer() {
                             rel="noopener noreferrer"
                             className="flex-1 text-center bg-charcoal text-white text-[11px] tracking-[0.1em] uppercase py-2.5 transition-colors hover:bg-charcoal-light"
                         >
-                            Directions
+                            {t("common.directions")}
                         </a>
                         <a
                             href="https://wa.me/971501507173"
@@ -84,7 +102,7 @@ export default function Footer() {
                             rel="noopener noreferrer"
                             className="flex-1 text-center border border-charcoal text-charcoal text-[11px] tracking-[0.1em] uppercase py-2.5 transition-colors hover:bg-charcoal hover:text-white"
                         >
-                            Call Us
+                            {t("common.callUs")}
                         </a>
                     </div>
                 </div>
@@ -93,17 +111,10 @@ export default function Footer() {
             {/* Drive times */}
             <div className="max-w-6xl mx-auto px-5 py-10 border-b border-white/10">
                 <p className="text-white/40 text-[11px] tracking-[0.3em] uppercase mb-6 text-center">
-                    Drive Times from Major Hubs
+                    {t("footer.driveTimes")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6 md:gap-10">
-                    {[
-                        { hub: "Al Furjan", time: "8 min" },
-                        { hub: "Discovery Gardens", time: "10 min" },
-                        { hub: "Motor City", time: "12 min" },
-                        { hub: "JLT", time: "15 min" },
-                        { hub: "Marina", time: "20 min" },
-                        { hub: "Jumeirah", time: "25 min" },
-                    ].map((item, i) => (
+                    {driveTimes.map((item, i) => (
                         <div key={i} className="text-center">
                             <p className="text-white text-[14px] font-light">{item.time}</p>
                             <p className="text-white/40 text-[11px] tracking-[0.1em] mt-1">{item.hub}</p>
@@ -121,29 +132,28 @@ export default function Footer() {
                             className="text-2xl font-light mb-4"
                             style={{ fontFamily: "var(--font-display)" }}
                         >
-                            BEIRUTI
+                            {t("hero.titleMain")}
                             <br />
-                            <span className="text-white/50">LAKE</span>
+                            <span className="text-white/50">{t("hero.titleSub")}</span>
                         </h3>
                         <p className="text-white/40 text-[13px] font-light leading-relaxed">
-                            Specialty coffee, premium ambiance & lakefront dining in the heart
-                            of Dubai Investment Park.
+                            {t("footer.brandDesc")}
                         </p>
                     </div>
 
                     {/* Hours */}
                     <div>
                         <h4 className="text-[12px] tracking-[0.2em] uppercase mb-4 text-white/60">
-                            Opening Hours
+                            {t("footer.openingHours")}
                         </h4>
                         <div className="space-y-2 text-[13px] font-light text-white/40">
                             <div className="flex justify-between">
-                                <span>Sun – Thu</span>
-                                <span className="text-white/60">8 AM – 12 AM</span>
+                                <span>{t("footer.weekdays")}</span>
+                                <span className="text-white/60">{t("footer.weekdaysTime")}</span>
                             </div>
                             <div className="flex justify-between">
-                                <span>Fri – Sat</span>
-                                <span className="text-white/60">8 AM – 1 AM</span>
+                                <span>{t("footer.weekends")}</span>
+                                <span className="text-white/60">{t("footer.weekendsTime")}</span>
                             </div>
                         </div>
                     </div>
@@ -151,16 +161,16 @@ export default function Footer() {
                     {/* Quick Links */}
                     <div>
                         <h4 className="text-[12px] tracking-[0.2em] uppercase mb-4 text-white/60">
-                            Quick Links
+                            {t("footer.quickLinks")}
                         </h4>
                         <div className="space-y-2">
-                            {["Menu", "About", "Gallery", "Contact"].map((link) => (
+                            {quickLinks.map((link) => (
                                 <a
-                                    key={link}
-                                    href={`#${link.toLowerCase()}`}
+                                    key={link.label}
+                                    href={link.href}
                                     className="block text-[13px] font-light text-white/40 hover:text-white transition-colors duration-300"
                                 >
-                                    {link}
+                                    {link.label}
                                 </a>
                             ))}
                         </div>
@@ -169,7 +179,7 @@ export default function Footer() {
                     {/* Social */}
                     <div>
                         <h4 className="text-[12px] tracking-[0.2em] uppercase mb-4 text-white/60">
-                            Connect
+                            {t("footer.connect")}
                         </h4>
                         <div className="flex gap-4">
                             <a
@@ -231,10 +241,8 @@ export default function Footer() {
                         </div>
 
                         {/* Address */}
-                        <div className="mt-6 text-[13px] font-light text-white/40 leading-relaxed">
-                            <p>DIP, Lake View - Shop 11</p>
-                            <p>The Market - Green Community Village</p>
-                            <p>Dubai</p>
+                        <div className="mt-6 text-[13px] font-light text-white/40 leading-relaxed whitespace-pre-line">
+                            {t("footer.mapAddress")}
                         </div>
                     </div>
                 </div>
@@ -244,10 +252,10 @@ export default function Footer() {
             <div className="border-t border-white/10">
                 <div className="max-w-6xl mx-auto px-5 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
                     <p className="text-white/30 text-[11px] tracking-[0.1em]">
-                        © 2024 Beiruti Lake Cafe. All rights reserved.
+                        {t("footer.rights")}
                     </p>
                     <p className="text-white/20 text-[10px] tracking-[0.1em]">
-                        Specialty Coffee DIP · Premium Roastery Dubai Investment Park
+                        {t("footer.tagline")}
                     </p>
                 </div>
             </div>
