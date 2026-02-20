@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const instagramPosts = [
     {
@@ -104,11 +105,12 @@ export default function InstagramFeed() {
                             }}
                         >
                             {/* Real image with lazy loading */}
-                            <img
+                            <Image
                                 src={post.image}
                                 alt={post.caption}
-                                loading="lazy"
-                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                sizes="(max-width: 768px) 50vw, 33vw"
                             />
 
                             {/* Hover overlay */}

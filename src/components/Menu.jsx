@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { menuData } from "@/data/menu";
 
 export default function Menu() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const [activeVenue, setActiveVenue] = useState("lakeCafe");
     const [activeCategory, setActiveCategory] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
@@ -162,25 +163,41 @@ export default function Menu() {
                     </div>
 
                     {/* Items list */}
-                    <div className="space-y-0">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                         {currentSection.items.map((item, idx) => (
                             <div
                                 key={`${activeVenue}-${activeCategory}-${idx}`}
-                                className="menu-item-hover flex items-baseline justify-between py-4 px-3 -mx-3 border-b border-sand-100 group"
+                                className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-sand-100 flex flex-col"
                             >
-                                <div className="flex-1 pr-4">
-                                    <h3 className="text-[14px] md:text-[15px] font-medium tracking-[0.05em] text-charcoal group-hover:tracking-[0.08em] transition-all duration-300 m-0">
-                                        {item.name}
-                                    </h3>
+                                {/* Image Container */}
+                                <div className="relative aspect-square w-full bg-sand-100 overflow-hidden">
+                                    <Image
+                                        src={item.image || "/images/menu/placeholder.jpg"}
+                                        alt={item.name[language] || item.name.en}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                                    />
+                                </div>
+
+                                {/* Content */}
+                                <div className="p-4 flex flex-col flex-grow">
+                                    <div className="flex justify-between items-start gap-2 mb-2">
+                                        <h3 className="text-[13px] md:text-[14px] font-bold tracking-wider uppercase text-charcoal leading-tight">
+                                            {item.name[language] || item.name.en}
+                                        </h3>
+                                    </div>
+
+                                    <p className="text-[13px] font-medium text-purple-600 mb-2">
+                                        {item.price} <span className="text-[10px]">AED</span>
+                                    </p>
+
                                     {item.description && (
-                                        <p className="text-[12px] text-charcoal-muted font-light mt-1 leading-relaxed">
-                                            {item.description}
+                                        <p className="text-[11px] text-charcoal-muted font-light leading-relaxed line-clamp-2 mt-auto">
+                                            {item.description[language] || item.description.en}
                                         </p>
                                     )}
                                 </div>
-                                <span className="text-[14px] font-light text-charcoal-muted whitespace-nowrap tabular-nums">
-                                    {item.price} <span className="text-[10px] tracking-wider">AED</span>
-                                </span>
                             </div>
                         ))}
                     </div>

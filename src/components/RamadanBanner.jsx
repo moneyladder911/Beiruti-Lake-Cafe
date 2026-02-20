@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import Image from "next/image";
 
 export default function RamadanBanner() {
     const { t } = useLanguage();
@@ -51,10 +52,11 @@ export default function RamadanBanner() {
                     {/* Image Section */}
                     <div className="w-full md:w-32 h-32 md:h-24 relative flex-shrink-0 rounded-xl overflow-hidden shadow-lg group">
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-                        <img
+                        <Image
                             src="/gallery-3.jpg"
                             alt="Iftar Buffet Spread"
-                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                            fill
+                            className="object-cover transform group-hover:scale-110 transition-transform duration-700"
                         />
                     </div>
 

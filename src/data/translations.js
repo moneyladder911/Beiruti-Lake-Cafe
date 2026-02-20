@@ -37,6 +37,28 @@ export const translations = {
             lakeCafe: "Lake Cafe",
             lago: "Lago",
             orderDirect: "Order Direct & Save 10%",
+            categories: {
+                coffee: "Coffee",
+                signatureCoffee: "Signature Coffee",
+                tea: "Tea",
+                milkShake: "Milk Shake",
+                smoothie: "Smoothie",
+                coldBeverage: "Cold Beverage",
+                freshJuice: "Fresh Juice",
+                softDrinks: "Soft Drinks",
+                breakfast: "Breakfast",
+                hotAppetizers: "Hot Appetizers",
+                coldAppetizers: "Cold Appetizers",
+                grill: "Grill",
+                grillCombo: "Grill per KG (Combo Meal)",
+                salads: "Salads",
+                rice: "Rice",
+                dessert: "Dessert",
+                neapolitanPizza: "Neapolitan Pizza",
+                pasta: "Pasta",
+                manakish: "Manakish",
+                sandwiches: "Sandwiches"
+            }
         },
         about: {
             ourStory: "Our Story",
@@ -92,28 +114,7 @@ export const translations = {
             time20: "20 min",
             time25: "25 min"
         },
-        categories: {
-            coffee: "Coffee",
-            signatureCoffee: "Signature Coffee",
-            tea: "Tea",
-            milkShake: "Milk Shake",
-            smoothie: "Smoothie",
-            coldBeverage: "Cold Beverage",
-            freshJuice: "Fresh Juice",
-            softDrinks: "Soft Drinks",
-            breakfast: "Breakfast",
-            hotAppetizers: "Hot Appetizers",
-            coldAppetizers: "Cold Appetizers",
-            grill: "Grill",
-            grillCombo: "Grill per KG (Combo Meal)",
-            salads: "Salads",
-            rice: "Rice",
-            dessert: "Dessert",
-            neapolitanPizza: "Neapolitan Pizza",
-            pasta: "Pasta",
-            manakish: "Manakish",
-            sandwiches: "Sandwiches"
-        }
+
     },
     ar: {
         common: {
@@ -153,6 +154,28 @@ export const translations = {
             lakeCafe: "ليك كافيه",
             lago: "لاغو",
             orderDirect: "اطلب مباشرة واحصل على خصم 10%",
+            categories: {
+                coffee: "قهوة",
+                signatureCoffee: "قهوة مميزة",
+                tea: "شاي",
+                milkShake: "ميلك شيك",
+                smoothie: "سموثي",
+                coldBeverage: "مشروبات باردة",
+                freshJuice: "عصائر طازجة",
+                softDrinks: "مشروبات غازية",
+                breakfast: "فطور",
+                hotAppetizers: "مقبلات ساخنة",
+                coldAppetizers: "مقبلات باردة",
+                grill: "مشاوي",
+                grillCombo: "مشاوي بالكيلو",
+                salads: "سلطات",
+                rice: "أرز",
+                dessert: "حلويات",
+                neapolitanPizza: "بيتزا نابولي",
+                pasta: "باستا",
+                manakish: "مناقيش",
+                sandwiches: "ساندويشات"
+            }
         },
         about: {
             ourStory: "قصتنا",
@@ -208,27 +231,6 @@ export const translations = {
             time20: "20 دقيقة",
             time25: "25 دقيقة"
         },
-        categories: {
-            coffee: "قهوة",
-            signatureCoffee: "قهوة مميزة",
-            tea: "شاي",
-            milkShake: "ميلك شيك",
-            smoothie: "سموثي",
-            coldBeverage: "مشروبات باردة",
-            freshJuice: "عصائر طازجة",
-            softDrinks: "مشروبات غازية",
-            breakfast: "فطور",
-            hotAppetizers: "مقبلات ساخنة",
-            coldAppetizers: "مقبلات باردة",
-            grill: "مشاوي",
-            grillCombo: "مشاوي بالكيلو",
-            salads: "سلطات",
-            rice: "أرز",
-            dessert: "حلويات",
-            neapolitanPizza: "بيتزا نابولي",
-            pasta: "باستا",
-            manakish: "مناقيش",
-            sandwiches: "ساندويشات"
-        }
+
     }
 };

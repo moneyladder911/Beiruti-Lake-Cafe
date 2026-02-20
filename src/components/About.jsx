@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 export default function About() {
     const { t } = useLanguage();
@@ -86,11 +87,12 @@ export default function About() {
                     >
                         <div className="relative aspect-[4/5] bg-sand-100 overflow-hidden">
                             {/* Actual storefront photo */}
-                            <img
+                            <Image
                                 src="/about-storefront.jpg"
                                 alt="Beiruti Lake Cafe exterior"
-                                className="absolute inset-0 w-full h-full object-cover"
-                                loading="lazy"
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                             />
                         </div>
 

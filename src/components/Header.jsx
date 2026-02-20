@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 export default function Header() {
     const { t, language, setLanguage } = useLanguage();
@@ -35,7 +36,7 @@ export default function Header() {
                 <div className="flex items-center gap-6">
                     <a href="#" className="flex items-center gap-3 group" aria-label="Beiruti Lake Cafe - Home">
                         <div className="relative">
-                            <img
+                            <Image
                                 src="/logo.png"
                                 alt="Beiruti Lake Cafe Logo"
                                 width={44}

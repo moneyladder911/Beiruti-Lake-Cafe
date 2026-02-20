@@ -1,22 +1,25 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 export default function Hero() {
     const { t } = useLanguage();
     const heroRef = useRef(null);
+    const [scrollY, setScrollY] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
+            setScrollY(window.scrollY);
             if (heroRef.current) {
-                const scrollY = window.scrollY;
                 const overlay = heroRef.current.querySelector(".hero-overlay");
                 if (overlay) {
-                    overlay.style.opacity = Math.min(1, 0.4 + scrollY / 800);
+                    overlay.style.opacity = Math.min(1, 0.4 + window.scrollY / 800);
                 }
             }
         };
+        handleScroll(); // Set initial value
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
@@ -27,14 +30,19 @@ export default function Hero() {
             id="hero"
             className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
         >
-            {/* Hero background image — Beiruti Lake sign, blurred */}
-            <div className="absolute inset-0 bg-charcoal">
-                <img
+            {/* Background Image with Parallax */}
+            <div
+                className="absolute inset-0 z-0 select-none"
+                style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+            >
+                <Image
                     src="/hero-bg.jpg"
-                    alt=""
-                    className="absolute inset-0 w-full h-full object-cover"
+                    alt="Beiruti Lake Cafe Ambience"
+                    fill
+                    priority
+                    className="object-cover"
+                    quality={90}
                     style={{ filter: 'blur(6px) brightness(0.35)', transform: 'scale(1.1)' }}
-                    fetchPriority="high"
                 />
             </div>
 
