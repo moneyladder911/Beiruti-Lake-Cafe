@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function MobileNav() {
+    const { language } = useLanguage();
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
@@ -14,6 +16,10 @@ export default function MobileNav() {
     }, []);
 
     if (!visible) return null;
+
+    const waMessage = language === "ar"
+        ? encodeURIComponent("مرحباً بيروتي ليك كافيه! أود الاستفسار عن القائمة والحجوزات.")
+        : encodeURIComponent("Hi Beiruti Lake Cafe! I'd like to know more about your menu and reservations.");
 
     const navItems = [
         {
@@ -38,7 +44,7 @@ export default function MobileNav() {
         },
         {
             label: "WhatsApp",
-            href: "https://wa.me/971501507173?text=Hi%20Beiruti%20Lake%20Cafe%2C%20I%27d%20like%20to%20book%20a%20table%2Forder%20for%20pickup.",
+            href: `https://wa.me/971501507173?text=${waMessage}`,
             external: true,
             icon: (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

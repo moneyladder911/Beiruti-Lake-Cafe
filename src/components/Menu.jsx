@@ -5,11 +5,39 @@ import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { menuData } from "@/data/menu";
 
+const businessLunchItems = [
+    { name: "Truffle Mushroom Pizza", image: "/business-lunch/truffle-mushroom-pizza.jpg" },
+    { name: "Truffle Mushroom Steak Pizza", image: "/business-lunch/truffle-mushroom-steak-pizza.png" },
+    { name: "BBQ Steak Pizza", image: "/business-lunch/bbq-steak-pizza.jpg" },
+    { name: "Spicy Steak Pizza", image: "/business-lunch/spicy-steak-pizza.jpg" },
+    { name: "Margarita Pizza", image: "/business-lunch/margarita-pizza.png" },
+    { name: "Pepperoni Pizza", image: "/business-lunch/pepperoni-pizza.png" },
+    { name: "Buratta Pizza", image: "/business-lunch/buratta-pizza.png" },
+    { name: "Bresaola Pizza", image: "/business-lunch/bresaola-pizza.png" },
+    { name: "Chicken Alfredo Pizza", image: "/business-lunch/chicken-alfredo-pizza.png" },
+    { name: "Carbonara Spaghetti", image: "/business-lunch/carbonara-spaghetti.png" },
+    { name: "Bolognese Spaghetti", image: "/business-lunch/bolognese-spaghetti.png" },
+    { name: "Arrabiata Penne", image: "/business-lunch/arrabiata-penne.png" },
+    { name: "Fettuccine Chicken Alfredo", image: "/business-lunch/fettuccine-chicken-alfredo.png" },
+    { name: "Chicken Pesto Fusilli", image: "/business-lunch/chicken-pesto-fusilli.png" },
+    { name: "Funghi Truffle Rigatoni", image: "/business-lunch/funghi-truffle-rigatoni.png" },
+    { name: "Meat Kebab", image: "/business-lunch/meat-kebab.jpg" },
+    { name: "Chicken Kebab", image: "/business-lunch/chicken-kebab.jpg" },
+    { name: "Shish Tawook", image: "/business-lunch/shish-tawook.jpg" },
+    { name: "Half Chicken with Rice", image: "/business-lunch/half-chicken-rice.jpg" },
+    { name: "Half Grill Chicken with Rice", image: "/business-lunch/half-grill-chicken-rice.jpg" },
+    { name: "Half Grill Chicken with Fries", image: "/business-lunch/half-grill-chicken-fries.jpg" },
+    { name: "Chicken Biryani", image: "/business-lunch/chicken-biryani.jpg" },
+    { name: "Special Lamb Biryani", image: "/business-lunch/special-lamb-biryani.jpg" },
+    { name: "Shisha Business Lunch", image: "/business-lunch/shisha-business-lunch.jpg" },
+];
+
 export default function Menu() {
     const { t, language } = useLanguage();
     const [activeVenue, setActiveVenue] = useState("lakeCafe");
     const [activeCategory, setActiveCategory] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
+    const [showBusinessLunch, setShowBusinessLunch] = useState(false);
     const scrollRef = useRef(null);
 
     const currentMenu = menuData[activeVenue];
@@ -101,8 +129,12 @@ export default function Menu() {
                         {t("menu.subtitle")}
                     </p>
 
-                    {/* Business Lunch Offer */}
-                    <div className="mt-5 inline-flex items-center gap-2 bg-sand-100 border border-sand-200 rounded-full px-5 py-2.5">
+                    {/* Business Lunch Offer — clickable, square badge */}
+                    <button
+                        onClick={() => setShowBusinessLunch(!showBusinessLunch)}
+                        className="mt-5 inline-flex items-center gap-2 bg-sand-100 border border-sand-200 px-5 py-2.5 transition-all duration-300 hover:bg-sand-200 cursor-pointer"
+                        style={{ borderRadius: 0 }}
+                    >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5E3C" strokeWidth="1.5">
                             <circle cx="12" cy="12" r="10" />
                             <polyline points="12 6 12 12 16 14" />
@@ -113,6 +145,66 @@ export default function Menu() {
                         <span className="text-[11px] text-charcoal-muted font-light">
                             · Daily 12–5 PM
                         </span>
+                        <svg
+                            width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="#8B5E3C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                            className="transition-transform duration-300"
+                            style={{ transform: showBusinessLunch ? "rotate(180deg)" : "rotate(0deg)" }}
+                        >
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                </div>
+
+                {/* Business Lunch Expandable Grid */}
+                <div
+                    className="overflow-hidden transition-all duration-500 ease-in-out"
+                    style={{
+                        maxHeight: showBusinessLunch ? "4000px" : "0px",
+                        opacity: showBusinessLunch ? 1 : 0,
+                    }}
+                >
+                    <div className="pt-6 pb-10">
+                        <div className="text-center mb-6">
+                            <h3
+                                className="text-2xl md:text-3xl font-light text-charcoal"
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
+                                Business Lunch
+                            </h3>
+                            <p className="text-[12px] text-charcoal-muted font-light mt-2 tracking-wider uppercase">
+                                Available daily · 12 PM – 5 PM · Starting from 29 AED
+                            </p>
+                            <div className="w-12 h-[1px] bg-charcoal mt-3 mx-auto" />
+                        </div>
+
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                            {businessLunchItems.map((item, idx) => (
+                                <div
+                                    key={`bl-${idx}`}
+                                    className="group bg-white overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-sand-100 flex flex-col"
+                                    style={{
+                                        animationDelay: `${idx * 40}ms`,
+                                        animation: showBusinessLunch ? `fadeSlideUp 0.4s ease ${idx * 40}ms both` : "none",
+                                    }}
+                                >
+                                    <div className="relative aspect-square w-full bg-sand-100 overflow-hidden">
+                                        <Image
+                                            src={item.image}
+                                            alt={item.name}
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                                        />
+                                    </div>
+                                    <div className="p-3 text-center">
+                                        <h4 className="text-[11px] md:text-[12px] font-bold tracking-wider uppercase text-charcoal leading-tight">
+                                            {item.name}
+                                        </h4>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
@@ -230,7 +322,11 @@ export default function Menu() {
                 {/* WhatsApp order CTA */}
                 <div className="mt-12 text-center">
                     <a
-                        href="https://wa.me/971501507173?text=Hi%20Beiruti%20Lake%20Cafe%2C%20I%27d%20like%20to%20book%20a%20table%2Forder%20for%20pickup."
+                        href={`https://wa.me/971501507173?text=${encodeURIComponent(
+                            language === "ar"
+                                ? "مرحباً بيروتي ليك كافيه! أود الاستفسار عن القائمة والحجوزات."
+                                : "Hi Beiruti Lake Cafe! I'd like to know more about your menu and reservations."
+                        )}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         id="menu-order-whatsapp"

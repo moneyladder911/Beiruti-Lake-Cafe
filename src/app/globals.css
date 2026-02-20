@@ -146,26 +146,51 @@ body {
   }
 }
 
-/* WhatsApp button pulse */
-@keyframes pulse-ring {
+/* WhatsApp button animations */
+@keyframes wa-pulse-ring {
   0% {
     transform: scale(1);
-    opacity: 0.6;
+    opacity: 0.5;
   }
 
   100% {
-    transform: scale(1.5);
+    transform: scale(1.6);
     opacity: 0;
   }
 }
 
-.whatsapp-pulse::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: #25D366;
-  animation: pulse-ring 2s ease-out infinite;
+@keyframes wa-bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  15% {
+    transform: translateY(-8px);
+  }
+
+  30% {
+    transform: translateY(0);
+  }
+
+  45% {
+    transform: translateY(-4px);
+  }
+
+  60% {
+    transform: translateY(0);
+  }
+}
+
+.whatsapp-ring {
+  background: rgba(37, 211, 102, 0.35);
+  animation: wa-pulse-ring 2s ease-out infinite;
+}
+
+.whatsapp-btn-float {
+  animation: wa-bounce 3s ease-in-out infinite;
+  animation-delay: 1s;
 }
 
 /* Bottom nav safe area */
@@ -215,6 +240,18 @@ body {
 
 .status-pulse {
   animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Menu item hover */
