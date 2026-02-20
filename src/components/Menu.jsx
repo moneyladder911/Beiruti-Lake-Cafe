@@ -86,8 +86,8 @@ export default function Menu() {
     return (
         <section id="menu" className="py-12 md:py-24 bg-cream">
             <div className="max-w-5xl mx-auto px-5">
-                {/* Section header */}
-                <div className="text-center mb-14">
+                {/* Section header — mb reduced to 2rem so venue tabs sit close */}
+                <div className="text-center mb-8">
                     <p className="text-charcoal-muted text-[11px] tracking-[0.5em] uppercase mb-4">
                         {t("menu.ourSelection")}
                     </p>
@@ -100,14 +100,28 @@ export default function Menu() {
                     <p className="text-charcoal-muted text-[14px] font-light mt-4 max-w-md mx-auto leading-relaxed">
                         {t("menu.subtitle")}
                     </p>
+
+                    {/* Business Lunch Offer */}
+                    <div className="mt-5 inline-flex items-center gap-2 bg-sand-100 border border-sand-200 rounded-full px-5 py-2.5">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5E3C" strokeWidth="1.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        <span className="text-[12px] tracking-[0.15em] uppercase font-medium text-charcoal">
+                            Business Lunch Offer
+                        </span>
+                        <span className="text-[11px] text-charcoal-muted font-light">
+                            · Daily 12–5 PM
+                        </span>
+                    </div>
                 </div>
 
-                {/* Venue toggle */}
-                <div className="flex items-center justify-center gap-1 mb-10">
+                {/* Venue toggle — 2rem gap from header above */}
+                <div className="flex items-center justify-center gap-1 mt-8 mb-0">
                     <button
                         onClick={() => handleVenueChange("lakeCafe")}
                         id="venue-lake-cafe"
-                        className={`px-6 py-3 text-[12px] tracking-[0.2em] uppercase font-light transition-all duration-300 ${activeVenue === "lakeCafe"
+                        className={`px-6 py-3 text-[0.72rem] tracking-[0.2em] uppercase font-light transition-all duration-300 ${activeVenue === "lakeCafe"
                             ? "bg-charcoal text-white"
                             : "bg-sand-100 text-charcoal-muted hover:bg-sand-200"
                             }`}
@@ -117,7 +131,7 @@ export default function Menu() {
                     <button
                         onClick={() => handleVenueChange("lago")}
                         id="venue-lago"
-                        className={`px-6 py-3 text-[12px] tracking-[0.2em] uppercase font-light transition-all duration-300 ${activeVenue === "lago"
+                        className={`px-6 py-3 text-[0.72rem] tracking-[0.2em] uppercase font-light transition-all duration-300 ${activeVenue === "lago"
                             ? "bg-charcoal text-white"
                             : "bg-sand-100 text-charcoal-muted hover:bg-sand-200"
                             }`}
@@ -126,20 +140,30 @@ export default function Menu() {
                     </button>
                 </div>
 
-                {/* Category tabs */}
+                {/* Divider between venue switcher and category tabs */}
+                <div className="w-full h-px bg-sand-200 mt-6 mb-0" />
+
+                {/* Category tabs — single horizontally scrollable row, never wraps */}
                 <div
                     ref={scrollRef}
-                    className="flex overflow-x-auto gap-1 md:gap-0 md:flex-wrap md:justify-center mb-10 pb-2 md:pb-0 scrollbar-hide"
+                    className="flex flex-nowrap overflow-x-auto mb-10"
                     style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                 >
                     {currentMenu.sections.map((section, index) => (
                         <button
                             key={`${activeVenue}-${index}`}
                             onClick={() => handleCategoryChange(index)}
-                            className={`whitespace-nowrap px-4 py-2.5 text-[11px] tracking-[0.15em] uppercase font-light transition-all duration-300 flex-shrink-0 ${index === activeCategory
-                                ? "menu-tab-active text-charcoal border-b-2 border-charcoal"
-                                : "text-charcoal-muted hover:text-charcoal border-b-2 border-transparent"
+                            className={`whitespace-nowrap flex-shrink-0 px-4 py-3 uppercase font-light transition-all duration-300 ${index === activeCategory
+                                ? "menu-tab-active text-charcoal"
+                                : "text-charcoal-muted hover:text-charcoal"
                                 }`}
+                            style={{
+                                fontSize: "0.72rem",
+                                letterSpacing: "0.2em",
+                                borderBottom: index === activeCategory
+                                    ? "2px solid #8B5E3C"
+                                    : "2px solid transparent",
+                            }}
                         >
                             {getCategoryTitle(section.category)}
                         </button>
